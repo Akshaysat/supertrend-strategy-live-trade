@@ -18,7 +18,7 @@ def color_survived(val):
 
 
 st.markdown(
-    "<h2 style='text-align: center; color: white;'>Supertrend Strategy - Live Trades</h2>",
+    "<h2 style='text-align: center; color: black;'>Supertrend Strategy - Live Trades</h2>",
     unsafe_allow_html=True,
 )
 
