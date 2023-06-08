@@ -23,9 +23,7 @@ st.markdown(
 )
 
 st.write("-----")
-strategy_name = "STS (SuperTrend Strategy)".lower()
-
-strategy_db_name = strategy_name.split(" ")[0]
+strategy_db_name = "STS".lower()
 
 # connect to the database
 mongo = MongoClient(st.secrets["mongo_db"]["mongo_url"])
