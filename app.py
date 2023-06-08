@@ -18,35 +18,12 @@ def color_survived(val):
 
 
 st.markdown(
-    "<h2 style='text-align: center; color: white;'>Systematic - Virtual Trading</h2>",
+    "<h2 style='text-align: center; color: white;'>Supertrend Strategy - Live Trades</h2>",
     unsafe_allow_html=True,
 )
 
 st.write("-----")
-
-strategy_rules_url = "https://notebook.zoho.in/app/index.html#/shared/notecards/u3i1sf2b21dfa93b3480b94958488a3ba2a11"
-
-strategy_name = st.selectbox(
-    "Select the Strategy",
-    [
-        "STS (SuperTrend Strategy)",
-        "CPS (Combined Premium Strategy)",
-        "STBT-BN (BANKNIFTY)",
-        "STBT-N (NIFTY)",
-        "STBT-FN (FINNIFTY)",
-        "STBT-12PM-BN (BANKNIFTY)",
-        "STBT-12PM-N (NIFTY)",
-        "STBT-12PM-FN (FINNIFTY)",
-        "MACD (BANKNIFTY)"
-    ],
-).lower()
-
-st.markdown(
-    f"""
-<a href={strategy_rules_url}><button style="background-color:LightGreen;float: right;"> View Strategy Rules</button></a>
-""",
-    unsafe_allow_html=True,
-)
+strategy_name = "STS (SuperTrend Strategy)".lower()
 
 strategy_db_name = strategy_name.split(" ")[0]
 
@@ -54,9 +31,6 @@ strategy_db_name = strategy_name.split(" ")[0]
 mongo = MongoClient(st.secrets["mongo_db"]["mongo_url"])
 mydb = mongo["test"]
 coll = mydb[f"systematic-strategy-{strategy_db_name}"]
-
-
-st.write("-----")
 
 df = pd.DataFrame(
     list(coll.find()),
